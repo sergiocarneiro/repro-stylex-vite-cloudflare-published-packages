@@ -1,0 +1,8 @@
+{
+  "name": "repro-stylex-vite-published-packages",
+  "description": "This is not a monorepo, use projects individually.",
+  "scripts": {
+    "clean": "rm -rf **/build **/dist **/node_modules *.tgz *.tsbuildinfo || true",
+    "postinstall": "npm install --prefix library && npm install --prefix app && npm install --prefix react-app && npm install --prefix react-router-app"
+  }
+}

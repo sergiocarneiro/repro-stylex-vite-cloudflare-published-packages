@@ -1,0 +1,38 @@
+{
+	"name": "react-router-cloudflare-app",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "react-router build",
+		"cf-typegen": "wrangler types",
+		"deploy": "npm run build && wrangler deploy",
+		"dev": "react-router dev",
+		"preinstall": "cd ../library && npm pack",
+		"postinstall": "npm install ../library/library-1.0.0.tgz && npm run cf-typegen",
+		"preview": "npm run build && vite preview",
+		"typecheck": "npm run cf-typegen && react-router typegen && tsc -b"
+	},
+	"dependencies": {
+		"isbot": "^5.1.0",
+		"library": "file:../library/library-1.0.0.tgz",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"react-router": "^7.7.0"
+	},
+	"devDependencies": {
+		"@babel/preset-typescript": "^7.27.0",
+		"@cloudflare/vite-plugin": "^1.10.0",
+		"@react-router/dev": "^7.7.0",
+		"@stylexjs/babel-plugin": "^0.14.2",
+		"@stylexjs/postcss-plugin": "^0.14.2",
+		"@types/node": "^20",
+		"@types/react": "^19.1.0",
+		"@types/react-dom": "^19.1.0",
+		"autoprefixer": "^10.4.0",
+		"typescript": "^5.8.0",
+		"vite": "^7.0.0",
+		"vite-plugin-babel": "^1.3.0",
+		"vite-tsconfig-paths": "^5.1.0",
+		"wrangler": "^4.26.0"
+	}
+}
